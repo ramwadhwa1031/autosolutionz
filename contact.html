@@ -33,6 +33,23 @@
 </head>
 
 <body>
+<div class="floating-container">
+    <a href="javascript:void(0)" class="floating-btn" id="mainBtn">
+        <i class="fa fa-plus"></i>
+    </a>
+
+    <!-- Options Menu (hidden by default) -->
+    <div class="floating-options" id="optionsMenu">
+        <a href="tel:0413925853" class="option-btn">
+            <i class="fa fa-phone"></i> Call
+        </a>
+        <a href="index.html#bookingSection" class="option-btn">
+            <i class="fa fa-car"></i> Book Service
+        </a>
+    </div>
+</div>
+
+
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -52,7 +69,7 @@
                 </div>
                 <div class="h-100 d-inline-flex align-items-center py-3">
                     <small class="far fa-clock text-primary me-2"></small>
-                    <small>Mon - Fri : 09.00 AM - 09.00 PM</small>
+                    <small>Mon - Fri : 09.00 AM - 06.00 PM (Special Assistance Available)</small>
                 </div>
             </div>
             <div class="col-lg-5 px-5 text-end">
@@ -83,7 +100,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.html" class="nav-item nav-link">Home</a>
-                <a href="about.html" class="nav-item nav-link">About</a>
+               
                 <!-- <a href="service.html" class="nav-item nav-link">Services</a> -->
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
@@ -95,9 +112,12 @@
                         <a href="transmission-service.html" class="dropdown-item">Transmission & Driveline</a>
                         <a href="diagnostic-services.html" class="dropdown-item">Diagnostic Services</a>
                         <a href="accessory-installation.html" class="dropdown-item">Accessory Installation</a>
-                        <a href="coming-soon.html" class="dropdown-item">Coming Soon Services</a>
+                         <a href="coming-soon.html" class="dropdown-item">Window Tinting</a>
+                        <a href="coming-soon.html" class="dropdown-item">Car Wrapping</a>
+                        <a href="coming-soon.html" class="dropdown-item">Interior & Exterior Car Washing</a>
                     </div>
                 </div>
+                <a href="about.html" class="nav-item nav-link">About</a>
                 <a href="contact.html" class="nav-item nav-link active">Contact</a>
             </div>
             <a href="contact.html" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Get A Quote<i class="fa fa-arrow-right ms-3"></i></a>
@@ -162,30 +182,38 @@
                 <div class="col-md-6">
                     <div class="wow fadeInUp" data-wow-delay="0.2s">
                         <!-- <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="/contact-form">Download Now</a>.</p> -->
-                        <form>
+                        <form id="quotationForm">
+                            <input type="hidden" name="formType" value="quotation">
+                            
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                        <label for="name">Your Name</label>
+                                        <input type="text" class="form-control" name="Name" placeholder="Your Name" required>
+                                        <label>Your Name</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                        <label for="email">Your Email</label>
+                                        <input type="email" class="form-control" name="Email" placeholder="Your Email" required>
+                                        <label>Your Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" name="Phone No" placeholder="Your Phone No" required>
+                                        <label>Your Phone No</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" name="Subject" placeholder="Subject" required>
+                                        <label>Subject</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                        <label for="subject">Subject</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
-                                        <label for="message">Message</label>
+                                        <textarea class="form-control" name="Message" placeholder="Leave a message here" style="height: 100px" required></textarea>
+                                        <label>Message</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -193,6 +221,7 @@
                                 </div>
                             </div>
                         </form>
+                        
                     </div>
                 </div>
             </div>
@@ -208,7 +237,7 @@
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Address</h4>
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Tasmania, Australia</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>0413 925 8530</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>0413 925 853</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>autosolution.au@gmail.com</p>
                     <div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
@@ -220,9 +249,9 @@
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Opening Hours</h4>
                     <h6 class="text-light">Monday - Friday:</h6>
-                    <p class="mb-4">09.00 AM - 09.00 PM</p>
+                    <p class="mb-4">09.00 AM - 06.00 PM (Special Assistance Available)</p>
                     <h6 class="text-light">Saturday - Sunday:</h6>
-                    <p class="mb-0">09.00 AM - 12.00 PM</p>
+                    <p class="mb-0">09.00 AM - 06.00 PM (Special Assistance Available)</p>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Services</h4>
@@ -266,7 +295,37 @@
     </div>
     <!-- Footer End -->
 
+<script>
+    document.getElementById('quotationForm').addEventListener('submit', function (e) {
+    e.preventDefault();
 
+    const formData = new FormData(this);
+    const submitButton = this.querySelector('button[type="submit"]');
+
+    submitButton.disabled = true; // Disable button to prevent multiple clicks
+
+    fetch('https://script.google.com/macros/s/AKfycby_d5NrIkxdIchT5_Bm9In0UAVO0RP4Quyzbv9EwRWWb29BZSGEzoD7pNPNbvI4dPKx/exec', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.result === 'success') {
+            alert('Request For Quotation submitted successfully!');
+            this.reset();
+        } else {
+            alert('Failed to submit quotation request. Try again.');
+        }
+    })
+    .catch(error => {
+        alert('Error submitting form: ' + error.message);
+    })
+    .finally(() => {
+        submitButton.disabled = false; // Re-enable button after submission
+    });
+});
+
+</script>
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 

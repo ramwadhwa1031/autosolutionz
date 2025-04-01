@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Repair Service Booking</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .bg-secondary {
+            background-color: #6c757d !important;
+        }
+        .bg-primary {
+            background-color: #007bff !important;
+        }
+        .text-white {
+            color: #fff !important;
+        }
+    </style>
+</head>
+<body>
+<div class="floating-container">
+    <a href="javascript:void(0)" class="floating-btn" id="mainBtn">
+        <i class="fa fa-plus"></i>
+    </a>
+
+    <!-- Options Menu (hidden by default) -->
+    <div class="floating-options" id="optionsMenu">
+        <a href="tel:0413925853" class="option-btn">
+            <i class="fa fa-phone"></i> Call
+        </a>
+        <a href="index.html#bookingSection" class="option-btn">
+            <i class="fa fa-car"></i> Book Service
+        </a>
+    </div>
+</div>
+
+
+    <div class="container-fluid bg-secondary booking my-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row gx-5">
+                <div class="col-lg-6 py-5">
+                    <div class="py-5">
+                        <h1 class="text-white mb-4">Certified and Award Winning Car Repair Service Provider</h1>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="bg-primary h-100 d-flex flex-column justify-content-center text-center p-5 wow zoomIn" data-wow-delay="0.6s">
+                        <h1 class="text-white mb-4">Book For A Service</h1>
+                        <form id="bookingForm">
+                            <div class="row g-3">
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" class="form-control border-0" placeholder="Your Name" style="height: 55px;" name="Name">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="number" class="form-control border-0" placeholder="Your Phone No" style="height: 55px;" name="Phone">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <select class="form-select border-0" style="height: 55px;" name="Service">
+                                        <option selected>Select A Service</option>
+                                        <option value="Vehicle Maintenance">Vehicle Maintenance</option>
+                                        <option value="Vehicle Inspections">Vehicle Inspections</option>
+                                        <option value="Vehicle Repairs">Vehicle Repairs</option>
+                                        <option value="Transmission & Driveline Service">Transmission & Driveline Service</option>
+                                        <option value="Diagnostic Services">Diagnostic Services</option>
+                                        <option value="Accessory Installation">Accessory Installation</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="datetime-local" class="form-control border-0" placeholder="Service Date and Time" style="height: 55px;" name="ServiceDateTime" id="serviceDateTime">
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control border-0" placeholder="Special Request" name="SpecialRequest"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label text-white">Vehicle Details</label>
+                                    <div class="row g-3">
+                                        <div class="col-12 col-sm-6">
+                                            <input type="text" class="form-control border-0" placeholder="Make" style="height: 55px;" name="VehicleMake">
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            <input type="text" class="form-control border-0" placeholder="Model" style="height: 55px;" name="VehicleModel">
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            <input type="number" class="form-control border-0" placeholder="Year" style="height: 55px;" name="VehicleYear">
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            <select class="form-select border-0" style="height: 55px;" name="FuelType">
+                                                <option selected>Select Fuel Type</option>
+                                                <option value="hybrid">Hybrid/EV</option>
+                                                <option value="petrol">Petrol</option>
+                                                <option value="diesel">Diesel</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-check-label text-white">Have you got the quotation?</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="Quotation" id="quotationYes" value="yes">
+                                        <label class="form-check-label text-white" for="quotationYes">Yes</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="Quotation" id="quotationNo" value="no">
+                                        <label class="form-check-label text-white" for="quotationNo">No</label>
+                                    </div>
+                                </div>
+                                <div class="col-12" id="acknowledgmentSection" style="display: none;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="acknowledgment" name="Acknowledgment">
+                                        <label class="form-check-label text-white" for="acknowledgment">I have read and agree to the terms and conditions</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-check-label text-white">Request for On-Site Visit</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="OnsiteVisit" id="onsiteYes" value="yes">
+                                        <label class="form-check-label text-white" for="onsiteYes">Yes</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="OnsiteVisit" id="onsiteNo" value="no">
+                                        <label class="form-check-label text-white" for="onsiteNo">No</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-secondary w-100 py-3" type="submit" id="bookNowButton">Book Now</button>
+                                </div>
+                                <!-- Hidden Timestamp Field -->
+                                <div class="col-12 col-sm-6">
+                                    <input type="hidden" class="form-control border-0" name="Timestamp" id="timestamp">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal for Alert -->
+    <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="alertModalLabel">Alert</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="alertMessage">Get a quotation first.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const quotationYes = document.getElementById('quotationYes');
+            const quotationNo = document.getElementById('quotationNo');
+            const acknowledgmentSection = document.getElementById('acknowledgmentSection');
+            const acknowledgmentCheckbox = document.getElementById('acknowledgment');
+            const bookNowButton = document.getElementById('bookNowButton');
+            const bookingForm = document.getElementById('bookingForm');
+            const alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+            const serviceDateTime = document.getElementById('serviceDateTime');
+            const timestamp = document.getElementById('timestamp');
+
+            // Pre-fill date and time with current values
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const currentDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+
+            serviceDateTime.value = currentDateTime;
+            serviceDateTime.min = currentDateTime;
+
+            quotationYes.addEventListener('change', function () {
+                if (quotationYes.checked) {
+                    acknowledgmentSection.style.display = 'block';
+                    bookNowButton.disabled = !acknowledgmentCheckbox.checked;
+                }
+            });
+
+            quotationNo.addEventListener('change', function () {
+                if (quotationNo.checked) {
+                    acknowledgmentSection.style.display = 'none';
+                    bookNowButton.disabled = true;
+                    alertModal.show();
+                }
+            });
+
+            acknowledgmentCheckbox.addEventListener('change', function () {
+                if (quotationYes.checked) {
+                    bookNowButton.disabled = !acknowledgmentCheckbox.checked;
+                }
+            });
+
+            bookingForm.addEventListener('submit', function (event) {
+                if (quotationNo.checked) {
+                    event.preventDefault();
+                    alertModal.show();
+                } else {
+                    bookNowButton.disabled = true; // Disable the button on submit
+
+                    // Populate the timestamp field with the current date and time
+                    const submissionTimestamp = new Date().toISOString();
+                    timestamp.value = submissionTimestamp;
+
+                    const formData = new FormData(this);
+                    const scriptURL = 'https://script.google.com/macros/s/AKfycby_d5NrIkxdIchT5_Bm9In0UAVO0RP4Quyzbv9EwRWWb29BZSGEzoD7pNPNbvI4dPKx/exec'; // Replace with your web app URL
+
+                    fetch(scriptURL, { method: 'POST', body: formData })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.result === 'success') {
+                                alert('Form submitted successfully!');
+                                this.reset();
+                            } else {
+                                alert('Failed to submit form. Try again.');
+                                bookNowButton.disabled = false; // Re-enable the button if submission fails
+                            }
+                        })
+                        .catch(error => {
+                            alert('Error!', error.message);
+                            bookNowButton.disabled = false; // Re-enable the button if an error occurs
+                        });
+                }
+            });
+
+            document.getElementById('alertModal').addEventListener('hidden.bs.modal', function () {
+                window.location.href = 'contact.html';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -274,7 +274,24 @@ $position-values: (
 
 // Body
 //
-// Settings for the `<body>` element.
+// Settings for the `<body>
+<div class="floating-container">
+    <a href="javascript:void(0)" class="floating-btn" id="mainBtn">
+        <i class="fa fa-plus"></i>
+    </a>
+
+    <!-- Options Menu (hidden by default) -->
+    <div class="floating-options" id="optionsMenu">
+        <a href="tel:0413925853" class="option-btn">
+            <i class="fa fa-phone"></i> Call
+        </a>
+        <a href="index.html#bookingSection" class="option-btn">
+            <i class="fa fa-car"></i> Book Service
+        </a>
+    </div>
+</div>
+
+` element.
 
 $body-bg:                   $white !default;
 $body-color:                $gray-900 !default;

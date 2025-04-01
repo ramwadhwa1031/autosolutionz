@@ -1,3 +1,109 @@
+/* Floating Button Container */
+.floating-container {
+    position: fixed;
+    right: 20px;
+    top: 50%; /* Positioning at 50% height */
+    transform: translateY(-50%); /* Center it vertically */
+    z-index: 9999;
+}
+
+/* Main Floating Button (The + Symbol) */
+.floating-btn {
+    background-color: #FFA500; /* Orange color */
+    color: white;
+    border-radius: 50%;
+    padding: 20px;
+    font-size: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.floating-btn:hover {
+    background-color: #e68900; /* Slightly darker orange */
+}
+
+/* Options Menu (hidden by default) */
+.floating-options {
+    display: none; /* Initially hidden */
+    position: absolute;
+    bottom: 60px; /* Positioning the options above the main button */
+    right: 0;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    width: 150px; /* Adjusted width */
+}
+
+/* Option buttons inside the menu */
+.option-btn {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 18px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.option-btn i {
+    margin-right: 10px; /* Space between icon and text */
+}
+
+/* Hover effect for options */
+.option-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* Show options when hovering over the floating button */
+.floating-container:hover .floating-options {
+    display: block; /* Show the options when hovering the container */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .floating-btn {
+        padding: 15px;
+        font-size: 24px;
+    }
+
+    .floating-options {
+        width: 130px; /* Adjust width for mobile */
+        bottom: 50px; /* Move options closer on mobile */
+    }
+
+    .option-btn {
+        font-size: 16px; /* Smaller font size for options */
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-btn {
+        padding: 12px;
+        font-size: 20px;
+    }
+
+    .floating-options {
+        width: 120px;
+        bottom: 40px;
+    }
+
+    .option-btn {
+        font-size: 14px;
+        padding: 6px;
+    }
+}
+
+
+
+
 /********** Template CSS **********/
 :root {
     --primary: orange;
