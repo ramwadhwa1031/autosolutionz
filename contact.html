@@ -65,11 +65,11 @@
             <div class="col-lg-7 px-5 text-start">
                 <div class="h-100 d-inline-flex align-items-center py-3 me-4">
                     <small class="fa fa-map-marker-alt text-primary me-2"></small>
-                    <small>Tasmania, Australia</small>
+                    <small>Hobart TAS  & Hoppers Crossing VIC</small>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center py-3">
                     <small class="far fa-clock text-primary me-2"></small>
-                    <small>Mon - Fri : 09.00 AM - 06.00 PM (Special Assistance Available)</small>
+                    <small>Mon - Fri : 09.00 AM - 06.00 PM (Special Weekend Assistance Available)</small>
                 </div>
             </div>
             <div class="col-lg-5 px-5 text-end">
@@ -92,7 +92,7 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary"><i class="fa fa-car me-3"></i>Auto Solutionz</h2>
+            <img src="img/logo.png">
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -105,16 +105,16 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
                     <div class="dropdown-menu fade-up m-0">
-                        
+                        <a href="accessory-installation.html" class="dropdown-item">Accessory Installation</a>
                         <a href="vms.html" class="dropdown-item">Vehicle Maintenance</a>
                         <a href="vehicle_inspection.html" class="dropdown-item">Vehicle Inspections</a>
                         <a href="vehicle_repair.html" class="dropdown-item">Vehicle Repairs</a>
                         <a href="transmission-service.html" class="dropdown-item">Transmission & Driveline</a>
                         <a href="diagnostic-services.html" class="dropdown-item">Diagnostic Services</a>
                         <a href="accessory-installation.html" class="dropdown-item">Accessory Installation</a>
-                         <a href="coming-soon.html" class="dropdown-item">Window Tinting</a>
-                        <a href="coming-soon.html" class="dropdown-item">Car Wrapping</a>
-                        <a href="coming-soon.html" class="dropdown-item">Interior & Exterior Car Washing</a>
+                         <a href="window_tinting.html" class="dropdown-item">Window Tinting</a>
+                        <a href="car_wrapping.html" class="dropdown-item">Car Wrapping / PPF</a>
+                        <a href="car_washing.html" class="dropdown-item">Interior & Exterior Car Detailing</a>
                     </div>
                 </div>
                 <a href="about.html" class="nav-item nav-link">About</a>
@@ -219,6 +219,9 @@
                                 <div class="col-12">
                                     <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
                                 </div>
+                                <div class="col-12 mt-3" id="formStatus" style="display: none;">
+                                    <div class="alert" role="alert"></div>
+                                </div>
                             </div>
                         </form>
                         
@@ -236,7 +239,7 @@
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Address</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Tasmania, Australia</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Hobart TAS  & Hoppers Crossing VIC</p>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>0413 925 853</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>autosolution.au@gmail.com</p>
                     <div class="d-flex pt-2">
@@ -249,9 +252,9 @@
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Opening Hours</h4>
                     <h6 class="text-light">Monday - Friday:</h6>
-                    <p class="mb-4">09.00 AM - 06.00 PM (Special Assistance Available)</p>
+                    <p class="mb-4">09.00 AM - 06.00 PM (Special Weekend Assistance Available)</p>
                     <h6 class="text-light">Saturday - Sunday:</h6>
-                    <p class="mb-0">09.00 AM - 06.00 PM (Special Assistance Available)</p>
+                    <p class="mb-0">09.00 AM - 06.00 PM (Special Weekend Assistance Available)</p>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Services</h4>
@@ -295,37 +298,62 @@
     </div>
     <!-- Footer End -->
 
-<script>
-    document.getElementById('quotationForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const formData = new FormData(this);
-    const submitButton = this.querySelector('button[type="submit"]');
-
-    submitButton.disabled = true; // Disable button to prevent multiple clicks
-
-    fetch('https://script.google.com/macros/s/AKfycby_d5NrIkxdIchT5_Bm9In0UAVO0RP4Quyzbv9EwRWWb29BZSGEzoD7pNPNbvI4dPKx/exec', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.result === 'success') {
-            alert('Request For Quotation submitted successfully!');
-            this.reset();
-        } else {
-            alert('Failed to submit quotation request. Try again.');
-        }
-    })
-    .catch(error => {
-        alert('Error submitting form: ' + error.message);
-    })
-    .finally(() => {
-        submitButton.disabled = false; // Re-enable button after submission
-    });
-});
-
-</script>
+    <script>
+        document.getElementById('quotationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            
+            // Get form status element
+            const formStatus = document.getElementById('formStatus');
+            const statusAlert = formStatus.querySelector('.alert');
+            
+            // Get current date and time
+            const currentDate = new Date();
+            const submissionDate = currentDate.toISOString().split('T')[0];
+            const submissionTime = currentDate.toTimeString().split(' ')[0];
+            
+            // Create form data object
+            const formData = new FormData(this);
+            formData.append('submissionDate', submissionDate);
+            formData.append('submissionTime', submissionTime);
+            
+            // Convert FormData to URL-encoded string for Google Apps Script
+            const urlEncodedData = new URLSearchParams(formData).toString();
+            
+            // Use fetch with proper options for Google Apps Script
+            fetch('https://script.google.com/macros/s/AKfycbxRKHl4igLBDLBKi72i9ToxynfxkTwvoxk2czZ5idtiW5vBHK_OKgs2gUFPzvsB3lE_/exec', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: urlEncodedData,
+                mode: 'no-cors' // Important for Google Apps Script
+            })
+            .then(response => {
+                // Since no-cors doesn't allow reading the response, we just check if the request was sent
+                formStatus.style.display = 'block';
+                statusAlert.className = 'alert alert-success';
+                statusAlert.textContent = 'Request For Quotation submitted successfully!';
+                this.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                formStatus.style.display = 'block';
+                statusAlert.className = 'alert alert-danger';
+                statusAlert.textContent = 'Failed to submit form. Please try again or contact us directly.';
+            })
+            .finally(() => {
+                // Reset button state
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            });
+        });
+        </script>
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
